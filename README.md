@@ -153,7 +153,7 @@ To verify stored users:
 
 From project root:
 
-docker compose exec db psql -U authuser -d authdb
+`docker compose exec db psql -U authuser -d authdb`
 
 
 This opens the `psql` shell inside the container. [web:99][web:102]
@@ -175,29 +175,9 @@ Columns:
 - `email` – user email you signed up with
 - `password` – hashed password (not plaintext)
 
-
 ---
 
-## 7. Environment Configuration
-
-### Backend `.env` (./backend/.env)
-`
-PORT=4000
-JWT_SECRET=supersecretjwt
-JWT_EXPIRES_IN=1d
-
-DB_USER=authuser
-DB_PASSWORD=authpass
-DB_NAME=authdb
-DB_HOST=db
-DB_PORT=5432`
-
-
-If you change backend port or host, update this constant accordingly.
-
----
-
-## 8. Common Troubleshooting Tips
+## 7. Common Troubleshooting Tips
 
 - **Backend not reachable**
   - Check container status: `docker compose ps`
@@ -206,7 +186,7 @@ If you change backend port or host, update this constant accordingly.
 - **Frontend blank page**
   - Open DevTools → Console; ensure no runtime errors from your JS files.
   - Check `frontend/src/api.js` does not use `process.env` directly in the browser.
-  - Ensure `<div id="root"></div>` exists in `frontend/public/index.html` and `index.js` mounts React on it. [web:59][web:68]
+  - Ensure `<div id="root"></div>` exists in `frontend/public/index.html` and `index.js` mounts React on it. 
 
 - **Cannot see users in DB**
   - Ensure signup completed successfully (no error response).
@@ -214,6 +194,6 @@ If you change backend port or host, update this constant accordingly.
 
 ---
 
-This project is intended as a minimal, educational setup showing how to connect a React frontend, Node.js backend, and PostgreSQL database using Docker Compose, with JWT‑based authentication. [web:120][web:121]
+This project is intended as a minimal, educational setup showing how to connect a React frontend, Node.js backend, and PostgreSQL database using Docker Compose, with JWT‑based authentication. 
 
 
